@@ -1,9 +1,13 @@
 import './App.css'
+import NavBar from './components/NavBar'
+import Tablelist from './components/Tablelist'
+
 function App() {
 
   return (
     <>
-      <h1 class="text-3xl font-bold underline">    Hello world!  </h1>
+      <NavBar/>
+      <Tablelist/>
     </>
   )
 }
