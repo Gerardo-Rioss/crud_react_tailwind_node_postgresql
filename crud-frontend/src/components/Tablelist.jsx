@@ -1,6 +1,7 @@
 const Tablelist = () => {
     const clients = [
         {
+            id: 1,
             name: "John Doe",
             email: "John.Doe@gmail.com",
             job: "Developer",
@@ -8,6 +9,7 @@ const Tablelist = () => {
             isactive: true,
         },
         {
+            id: 2,
             name: "John1 Doe",
             email: "John1.Doe@gmail.com",
             job: "Developer1",
@@ -15,6 +17,7 @@ const Tablelist = () => {
             isactive: true,
         },
         {
+            id: 3,
             name: "John2 Doe",
             email: "John2.Doe@gmail.com",
             job: "Developer2",
@@ -37,12 +40,17 @@ const Tablelist = () => {
                     </thead>
                     <tbody className="hover">
                         {/* row 1 */}
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
+
+                        {clients.map((client)=> {
+                            <tr>
+                                <th>{client.id}</th>
+                                <td>{client.name}</td>
+                                <td>{client.email}</td>
+                                <td>{client.job}</td>
+                                <td>{client.rate}</td>
+                                <td>{client.isactive}</td>
+                            </tr>
+                        })}
                     </tbody>
                 </table>
             </div>
