@@ -1,4 +1,4 @@
-const Tablelist = () => {
+const TableList = ({handleOpen}) => {
     const clients = [
         {
             id: 1,
@@ -26,6 +26,7 @@ const Tablelist = () => {
         },
     ];
 
+
     return (
         <>
             <div className="overflow-x-auto mt-10">
@@ -33,24 +34,37 @@ const Tablelist = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>id</th>
                             <th>Name</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th>Job</th>
+                            <th>Rate</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody className="hover">
                         {/* row 1 */}
 
-                        {clients.map((client)=> {
+                        {clients.map((client)=> (
                             <tr>
                                 <th>{client.id}</th>
                                 <td>{client.name}</td>
                                 <td>{client.email}</td>
                                 <td>{client.job}</td>
                                 <td>{client.rate}</td>
-                                <td>{client.isactive}</td>
+                            <td>
+                                <button className={`btn rounded-full w-20 ${client.isactive  ? `btn-primary`:`btn-outline btn-primary` }`}>
+                                    {client.isactive ? "Active" : "Inactive"}
+                                </button>
+                            </td>
+                            <td>
+                                <button className="btn btn-secondary" onClick={()=>handleOpen('edit')}>Update</button>
+                            </td>
+                            <td>
+                                <button className="btn btn-accent">Delete</button>
+                            </td>
                             </tr>
-                        })}
+                        ))}
                     </tbody>
                 </table>
             </div>
@@ -58,4 +72,4 @@ const Tablelist = () => {
     );
 };
 
-export default Tablelist;
+export default TableList;
