@@ -46,7 +46,7 @@ const TableList = ({handleOpen}) => {
                         {/* row 1 */}
 
                         {clients.map((client)=> (
-                            <tr>
+                            <tr key={client.id} className="hover">
                                 <th>{client.id}</th>
                                 <td>{client.name}</td>
                                 <td>{client.email}</td>

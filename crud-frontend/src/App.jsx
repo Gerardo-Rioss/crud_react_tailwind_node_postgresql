@@ -6,7 +6,7 @@ import TableList from './components/Tablelist'
 
 function App() {
   const [isOpen, setIsOpen]= useState(false);
-  const [modalMode, setModalMode]= useState("add");
+  const [modalMode, setModalMode]= useState('add');
 
   const handleOpen= (mode)=>{
     setModalMode(mode);
@@ -19,6 +19,7 @@ function App() {
     }else{
       console.log('modal mode edit')
     }
+    setIsOpen(false);
   }
 
   return (
@@ -27,9 +28,11 @@ function App() {
       <TableList handleOpen={handleOpen}/>
       <ModalForm 
       isOpen={isOpen} 
-      onSubmit={handleSubmit}
-      onClose={()=>setIsOpen(false)}/>
+      onClose={()=>setIsOpen(false)}
       mode={modalMode}
+      onSubmit={handleSubmit}
+      />
+      
     </>
   )
 }
